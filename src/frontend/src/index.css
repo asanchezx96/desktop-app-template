@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --color-bg: var(--background);
+  --color-panel: var(--card);
+  --color-border: var(--border);
+  --color-accent: var(--primary);
+  --color-accent2: var(--primary-hover);
+  --color-text: var(--foreground);
+  --color-muted: var(--muted-foreground);
+  --color-console: var(--console-bg);
+  --color-green: var(--green);
+  --color-red: var(--red);
+  --color-yellow: var(--yellow);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.25rem;
+}
+
+:root {
+  color-scheme: light;
+  /* Modo Light (Gris/Zinc Web Design System) */
+  --background: oklch(0.96 0.003 240);
+  --foreground: oklch(0.12 0.005 240);
+  --card: oklch(1.0 0 0);
+  --border: oklch(0.89 0.005 240);
+  --primary: oklch(0.546 0.215 263);
+  --primary-hover: oklch(0.47 0.20 264);
+  --muted-foreground: oklch(0.55 0.005 240);
+  --console-bg: oklch(0.98 0.002 240);
+  
+  --green: oklch(0.62 0.15 140);
+  --red: oklch(0.55 0.18 25);
+  --yellow: oklch(0.65 0.15 80);
+}
+
+.dark {
+  color-scheme: dark;
+  /* Modo Dark (Slate/Indigo Web Design System) */
+  --background: oklch(0.11 0.012 240);
+  --foreground: oklch(0.93 0.005 240);
+  --card: oklch(0.15 0.014 240);
+  --border: oklch(0.21 0.014 240);
+  --primary: oklch(0.74 0.15 258);
+  --primary-hover: oklch(0.80 0.13 258);
+  --muted-foreground: oklch(0.62 0.01 240);
+  --console-bg: oklch(0.08 0.01 240);
+  
+  --green: oklch(0.72 0.11 140);
+  --red: oklch(0.63 0.15 25);
+  --yellow: oklch(0.75 0.15 80);
+}
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-shadow: none !important;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+
+  body {
+    @apply bg-bg text-text;
+    font-family: 'Geist', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--muted-foreground);
+  }
+
+  .terminal-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .terminal-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 9999px;
+  }
+  .terminal-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+  }
+  .terminal-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+
+  /* Custom inputs & selectors styled globally */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  select {
+    background: var(--console-bg) !important;
+    border: 1px solid var(--border) !important;
+    color: var(--foreground) !important;
+    border-radius: 0.65rem !important;
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.75rem !important;
+    transition: border-color 0.15s ease-in-out, background-color 0.15s ease-in-out !important;
+    outline: none !important;
+    box-shadow: none !important;
+    appearance: none !important;
+  }
+
+  input[type="text"]:hover,
+  input[type="password"]:hover,
+  input[type="email"]:hover,
+  select:hover {
+    border-color: oklch(0.35 0.015 240) !important;
+    background: var(--console-bg) !important;
+  }
+
+  input[type="text"]:focus,
+  input[type="password"]:focus,
+  input[type="email"]:focus,
+  select:focus {
+    border-color: var(--primary) !important;
+    background: var(--console-bg) !important;
+    box-shadow: none !important;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+    background-repeat: no-repeat !important;
+    background-position: right 0.75rem center !important;
+    background-size: 0.85rem !important;
+    padding-right: 2.25rem !important;
+  }
+
+  select:focus {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f8fafc' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") !important;
+  }
+
+  input[type="checkbox"] {
+    accent-color: var(--primary) !important;
+    cursor: pointer !important;
+  }
+}
+
+/* ── Diálogos modales ─────────────────────────────────────────────────── */
+@keyframes dialog-overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes dialog-panel-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.dialog-overlay {
+  animation: dialog-overlay-in 140ms ease-out;
+}
+
+.dialog-panel {
+  /* Curva "ease-out expo": entra rápido y frena, sin rebote */
+  animation: dialog-panel-in 190ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes menu-panel-in {
+  from { opacity: 0; transform: translateY(-4px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.menu-panel {
+  animation: menu-panel-in 120ms ease-out;
+  transform-origin: top right;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog-overlay,
+  .dialog-panel,
+  .menu-panel {
+    animation: none;
+  }
+}

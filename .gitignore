@@ -1,0 +1,33 @@
+# ── Ignorar entornos virtuales ─────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Ignorar compilaciones ──────────────────────────────────────────────
+build/
+dist/
+__pycache__/
+*.pyc
+
+# ── Ignorar frontend compilado y dependencias ──────────────────────────
+src/frontend/dist/
+src/frontend/node_modules/
+
+# ── Ignorar archivos de configuración local ────────────────────────────
+.env
+settings.json
+*.code-workspace
+.vscode/
+.idea/
+
+# ── Ignorar archivos de registro (Logs) y temporales ───────────────────
+*.log
+.pytest_cache/
+.mypy_cache/
+.ipynb_checkpoints/
+
+# ── OS ─────────────────────────────────────────────────────────────────
+.DS_Store
+[Tt]humbs.db
+desktop.ini
+

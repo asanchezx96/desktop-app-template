@@ -1,0 +1,14 @@
+# ── Servidor Web ──────────────────────────────────────────────────────────
+fastapi==0.136.1
+uvicorn[standard]==0.46.0
+python-dotenv==1.2.2
+requests==2.32.5
+
+# ── Interfaz Desktop e Icono en Bandeja ──────────────────────────────────
+pywebview==6.2.1
+pythonnet==3.0.5
+pystray==0.19.5
+Pillow==12.1.1
+
+# ── Compilación y Empaquetado ─────────────────────────────────────────────
+pyinstaller==6.19.0
